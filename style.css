@@ -260,7 +260,7 @@ body{
 /* */
 .notFound{
     grid-template-columns: 1fr!important;
-    color: var(--col);
+    color: deeppink;
     font-size:20px; 
     font-weight: 300; 
     width: 100%;
