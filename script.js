@@ -4,7 +4,10 @@ const mealDetailsContent = document.querySelector('.meal-details-content');
 const recipeCloseBtn = document.getElementById('recipe-close-btn');
 
 // event listeners
-searchBtn.addEventListener('click', getMealList);
+searchBtn.addEventListener('click', (e) => {
+    e.preventDefault(); // stop form-like refresh
+    getMealList();
+});
 mealList.addEventListener('click', getMealRecipe);
 recipeCloseBtn.addEventListener('click', () => {
     mealDetailsContent.parentElement.classList.remove('showRecipe');
@@ -50,7 +53,7 @@ function getMealList() {
     }
 }
 
-// get full recipe for a meal
+// get recipe details
 function getMealRecipe(e) {
     e.preventDefault();
     if (e.target.classList.contains('recipe-btn')) {
@@ -61,7 +64,7 @@ function getMealRecipe(e) {
     }
 }
 
-// show recipe modal
+// show modal
 function mealRecipeModal(meal) {
     meal = meal[0];
     let html = `
@@ -81,5 +84,3 @@ function mealRecipeModal(meal) {
     mealDetailsContent.innerHTML = html;
     mealDetailsContent.parentElement.classList.add('showRecipe');
 }
-
-
